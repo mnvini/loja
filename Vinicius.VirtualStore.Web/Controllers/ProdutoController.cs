@@ -16,7 +16,7 @@ namespace Vinicius.VirtualStore.Web.Controllers
         {
             _repository = new RepositoryProducts();
 
-            var products = _repository.Produto.Take(10);
+            var products = _repository.Produto.OrderBy(p => p.Name);
 
             return View(products);
         }

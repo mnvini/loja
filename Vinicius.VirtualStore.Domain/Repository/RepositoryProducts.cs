@@ -11,7 +11,7 @@ namespace Vinicius.VirtualStore.Domain.Repository
     {
         private readonly EfDbContext _context = new EfDbContext();
 
-        public IEnumerable<Produtos> Produto
+        public IEnumerable<Products> Produto
         {
             get { return _context.Produtos; }
         } 

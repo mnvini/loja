@@ -10,8 +10,8 @@ using System.Xml;
 
 namespace Vinicius.VirtualStore.Domain.Entities
 {
-    
-    public class Produtos
+    [Table("Produtos")]
+    public class Products
     {
         [Key]
         [Column("ProdutoId")]

@@ -1,0 +1,16 @@
+﻿@using Vinicius.VirtualStore.Web.HtmlHelpers
+@model Vinicius.VirtualStore.Web.Models.ProductsViewModel
+@using Vinicius.VirtualStore.Web.HtmlHelpers
+@{
+    ViewBag.Title = "ProductsList";
+}
+@foreach (var p in Model.Products)
+{
+    <div>
+        <h3>@p.Name</h3>
+        @p.ProductDescription
+        <h3>@p.Price.ToString("c")</h3>
+    </div>
+}
+
+@Html.PageLinks(Model.Pagination, x => Url.Action("ProductsList", new{page = x}))
