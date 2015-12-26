@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Vinicius.VirtualStore.Domain.Entities
 {
+    
     public class Produtos
     {
-        public int ProdutoId{ get; set; }
+        [Key]
+        [Column("ProdutoId")]
+        public int ProductId{ get; set; }
 
-        public string Nome { get; set; }
+        [Column("ProdutoDescricaoResumida")]
+        public string Name { get; set; }
 
-        public string Descricao { get; set; }
+        [Column("ProdutoDescricao")]
+        public string ProductDescription { get; set; }
 
-        public decimal Preco { get; set; }
+        [Column("Preco")]
+        public decimal Price { get; set; }
 
-        public string Categoria { get; set; }
 
     }
 }
