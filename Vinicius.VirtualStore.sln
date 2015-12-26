@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinicius.VirtualStore.Web",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinicius.VirtualStore.UnitTest", "Vinicius.VirtualStore.UnitTest\Vinicius.VirtualStore.UnitTest.csproj", "{7DE80B8B-BF45-48F3-BC03-FEF0D421A4C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vinicius.VirtualStore.Script", "Vinicius.VirtualStore.Script", "{8F88E821-EC36-4F91-AE12-B083E8E44CDA}"
+	ProjectSection(SolutionItems) = preProject
+		Vinicius.VirtualStore.Scripts\ScritpProduto.rar = Vinicius.VirtualStore.Scripts\ScritpProduto.rar
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
