@@ -17,10 +17,10 @@ namespace Vinicius.VirtualStore.Domain.Entities
         [Column("ProdutoId")]
         public int ProductId{ get; set; }
 
-        [Column("ProdutoDescricaoResumida")]
+        [Column("Nome")]
         public string Name { get; set; }
 
-        [Column("ProdutoDescricao")]
+        [Column("Descricao")]
         public string ProductDescription { get; set; }
 
         [Column("Preco")]

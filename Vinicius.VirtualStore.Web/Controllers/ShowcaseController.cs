@@ -12,7 +12,7 @@ namespace Vinicius.VirtualStore.Web.Controllers
     {
 
         private RepositoryProducts _repository;
-        public int ProductsPerPage = 3;
+        public int ProductsPerPage = 8;
 
         public ViewResult ProductsList(int page = 1)
         {
@@ -21,6 +21,7 @@ namespace Vinicius.VirtualStore.Web.Controllers
             ProductsViewModel model = new ProductsViewModel
             {
                 Products = _repository.Produto
+                .OrderBy(p => p.ProductDescription)
                 .Skip((page - 1) * ProductsPerPage)
                 .Take(ProductsPerPage),
 
@@ -32,10 +33,6 @@ namespace Vinicius.VirtualStore.Web.Controllers
                 }
                 
             };
-
-            
-
-     
 
             return View(model);
         }

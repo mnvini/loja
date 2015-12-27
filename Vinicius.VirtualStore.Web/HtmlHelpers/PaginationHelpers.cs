@@ -15,7 +15,7 @@ namespace Vinicius.VirtualStore.Web.HtmlHelpers
         {
             StringBuilder result =  new StringBuilder();
 
-            for (int i = 0; i < pagination.TotalItems; i++)
+            for (int i = 1; i <= pagination.PagesTotal; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.MergeAttribute("href",pageUrl(i));
