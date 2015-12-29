@@ -11,5 +11,7 @@ namespace Vinicius.VirtualStore.Web.Models
         public IEnumerable<Products> Products { get; set; }
 
         public Pagination Pagination { get; set; }
+
+        public String CurrentCategory { get; set; }  
     }
 }

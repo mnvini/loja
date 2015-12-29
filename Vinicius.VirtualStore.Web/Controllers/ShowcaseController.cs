@@ -14,13 +14,14 @@ namespace Vinicius.VirtualStore.Web.Controllers
         private RepositoryProducts _repository;
         public int ProductsPerPage = 8;
 
-        public ViewResult ProductsList(int page = 1)
+        public ViewResult ProductsList(string category, int page = 1)
         {
             _repository = new RepositoryProducts();
  
             ProductsViewModel model = new ProductsViewModel
             {
                 Products = _repository.Produto
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.ProductDescription)
                 .Skip((page - 1) * ProductsPerPage)
                 .Take(ProductsPerPage),
@@ -30,7 +31,9 @@ namespace Vinicius.VirtualStore.Web.Controllers
                     CurrentPage = page,
                     ItemsPerPage = ProductsPerPage,
                     TotalItems = _repository.Produto.Count()
-                }
+                },
+
+                CurrentCategory = category
                 
             };
 

@@ -26,6 +26,9 @@ namespace Vinicius.VirtualStore.Domain.Entities
         [Column("Preco")]
         public decimal Price { get; set; }
 
+        [Column("Categoria")]
+        public string Category { get; set; }
+
 
     }
 }
