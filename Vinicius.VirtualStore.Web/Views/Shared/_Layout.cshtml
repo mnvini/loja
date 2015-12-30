@@ -3,25 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Viniciu's Virtual Store Your Sport Is Here</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="navbar-brand" href="#">Viniciu's Virtual Store</a>
+    <title>@ViewBag.Title - Viniciu's Virtual Store</title>
 
-    </div>
-    <div class="row panel">
-        <div id="categorias" class="col-xs-3">Minhas Categorias</div>
-    </div>
-
-    <div class="col-xs-8">
-        @RenderBody()
-    </div>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+    <div class="navbar navbar-inverse" role="navigation">
+
+        <a class="navbar-brand" href="#">Viniciu's Virtual Store </a>
+
+    </div>
+
+    <div class="row panel">
+
+        <div id="categorias" class="col-xs-3">
+            @Html.Action("Menu", "Category")
+        </div>
+
+
+        <div  class="col-xs-8">
+            @RenderBody()
+        </div>
+
+    </div>
+
+
+
+
+
+
+
 </body>
 </html>
