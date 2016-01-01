@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Vinicius.VirtualStore.Domain.Entities;
 using Vinicius.VirtualStore.Domain.Repository;
+using Vinicius.VirtualStore.Web.Models;
 
 namespace Vinicius.VirtualStore.Web.Controllers
 {
@@ -35,7 +36,6 @@ namespace Vinicius.VirtualStore.Web.Controllers
             return cart;
         }
 
-
         public RedirectToRouteResult Remove(int productId, string returnUrl)
         {
             _repository = new RepositoryProducts();
@@ -48,6 +48,21 @@ namespace Vinicius.VirtualStore.Web.Controllers
 
             return RedirectToAction("Index", new {returnUrl});
 
+        }
+
+        public ViewResult Index(string returnurl)
+        {
+            return View(new CartViewModel
+            {
+                Cart = GetCart(),
+                ReturnUrl = returnurl
+            });
+        }
+
+        public PartialViewResult Resume()
+        {
+            Cart cart = GetCart();
+            return PartialView(cart);
         }
     }
 }

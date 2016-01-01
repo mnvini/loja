@@ -1,0 +1,52 @@
+﻿@model Vinicius.VirtualStore.Web.Models.CartViewModel
+
+@{
+    ViewBag.Title = "Viniciu's Virtual Store: Your Cart";
+}
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+<h2>Your Cart</h2>
+<table id="cartTable" class="table">
+    <thead>
+    <tr>
+        <th>Quantity</th>
+        <th>Product</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">SubTotal</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var items in Model.Cart.CartItems)
+    {
+        <tr>
+            <td class="text-center">@items.Quantity</td>
+            <td class="text-center">@items.Procuts.Name</td>
+            <td class="text-center">@items.Procuts.Price.ToString("C")</td>
+            <td class="text-right">@((items.Quantity*items.Procuts.Price).ToString("C"))</td>
+            <td>
+                @using (Html.BeginForm("Remove", "Cart"))
+                {
+                    @Html.Hidden("ProductId", items.Procuts.ProductId)
+                    @Html.HiddenFor(p => p.ReturnUrl)
+                    <input class="btn btn-sm btn-warning" type="submit" value="Remove"/>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" class="text-right">Total:</td>
+        <td class="text-right">
+            @Model.Cart.TotalValue().ToString("C")
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+    @Html.ActionLink("Close Order","CloseOrder", "Cart", new{@class="btn btn-primary"})
+</div>

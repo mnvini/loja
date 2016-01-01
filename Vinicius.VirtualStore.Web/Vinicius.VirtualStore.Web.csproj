@@ -126,6 +126,7 @@
     <Compile Include="HtmlHelpers\PaginationHelpers.cs" />
     <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\ProductsViewModel.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,8 @@
     <Content Include="Views\Showcase\ProductsList.cshtml" />
     <Content Include="Views\Shared\_DetailsProducts.cshtml" />
     <Content Include="Views\Category\Menu.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Resume.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
