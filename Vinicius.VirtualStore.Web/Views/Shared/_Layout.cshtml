@@ -11,35 +11,18 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 
-
 </head>
 <body>
-
-
     <div class="navbar navbar-inverse" role="navigation">
-
         <a class="navbar-brand" href="#">Viniciu's Virtual Store </a>
-
     </div>
-
     <div class="row panel">
-
         <div id="categorias" class="col-xs-3">
             @Html.Action("Menu", "Category")
         </div>
-
-
-        <div  class="col-xs-8">
+        <div class="col-xs-8">
             @RenderBody()
         </div>
-
     </div>
-
-
-
-
-
-
-
 </body>
 </html>
