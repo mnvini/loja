@@ -12,7 +12,7 @@ namespace Vinicius.VirtualStore.Web.Controllers
     {
 
         private RepositoryProducts _repository;
-        public int ProductsPerPage = 8;
+        public int ProductsPerPage = 5;
 
         public ViewResult ProductsList(string category, int page = 1)
         {
@@ -30,7 +30,7 @@ namespace Vinicius.VirtualStore.Web.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = ProductsPerPage,
-                    TotalItems = _repository.Produto.Count()
+                    TotalItems = category == null ? _repository.Produto.Count() : _repository.Produto.Count(p => p.Category == category)
                 },
 
                 CurrentCategory = category
