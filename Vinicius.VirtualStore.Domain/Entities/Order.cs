@@ -7,9 +7,9 @@ namespace Vinicius.VirtualStore.Domain.Entities
     {
         [Required(ErrorMessage = "Enter your name")]
         public String ClientName { get; set; }
-        
-        [Display(Name = "Cep:")]
-        public string Cep { get; set; }
+
+        [Display(Name = "Zip Code:")]
+        public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "Enter your address")]
         [Display(Name = "Address:")]

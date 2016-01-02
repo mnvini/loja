@@ -1,4 +1,5 @@
-﻿@model Vinicius.VirtualStore.Domain.Entities.Order
+﻿@using System.Text.RegularExpressions
+@model Vinicius.VirtualStore.Domain.Entities.Order
 
 @{
     ViewBag.Title = "Close Order";
@@ -13,14 +14,18 @@
     @Html.ValidationSummary()
     <h3>Send To</h3>
     <div class="form-group">
-        <label>Client Name</label>
+        <label>Client Name:</label>
         @Html.TextBoxFor(o => o.ClientName, new {@class = "form-control"})
     </div>
 
     <h3>Information for delivery</h3>
+    <div class="form-group">
+        <label>Zip Code:</label>
+        @Html.TextBoxFor(o => o.ZipCode, new { @class = "form-control", maxlength = "8"})
+    </div>
     foreach (var properties in ViewData.ModelMetadata.Properties)
     {
-        if (properties.PropertyName != "GiftWrap" && properties.PropertyName != "ClientName")
+        if (properties.PropertyName != "GiftWrap" && properties.PropertyName != "ClientName" && properties.PropertyName != "ZipCode")
         {
             <div class="form-group">
                 <label>@(properties.DisplayName ?? properties.PropertyName) </label>
@@ -42,3 +47,29 @@
 
     <input class="btn btn-primary" type="submit" value="Close Order"/>
 }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $("#ZipCode").keyup(function () {
+        if ($("#ZipCode").val().length === 8) {
+            $("#Address").val('');
+            $("#Neighborhood").val('');
+            $("#City").val('');
+            $("#State").val('');
+
+            var zipCode = $("#ZipCode").val().replace("-", "");
+            var url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + zipCode + "&formato=json";
+            $.getJSON(url, {},
+                function (data) {
+                    if (data.resultado_txt === "sucesso - cep completo") {
+                        $("#Neighborhood").val(data.bairro);
+                        $("#City").val(data.cidade);
+                        $("#Address").val(data.tipo_logradouro + " " + data.logradouro);
+                        $("#State").val(data.uf);
+                    } else {
+                        alert("Cep não encontrado");
+                    }
+            });
+        }
+    });
+</script>
