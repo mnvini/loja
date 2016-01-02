@@ -36,8 +36,8 @@ namespace Vinicius.VirtualStore.UnitTest
             CartItems[] items = cart.CartItems.ToArray();
 
             Assert.AreEqual(items.Length, 2);
-            Assert.AreEqual(items[0].Procuts, products1);
-            Assert.AreEqual(items[1].Procuts, products2);
+            Assert.AreEqual(items[0].Products, products1);
+            Assert.AreEqual(items[1].Products, products2);
 
         }
 
@@ -63,7 +63,7 @@ namespace Vinicius.VirtualStore.UnitTest
             cart.AddItem(product1, 10);
 
             CartItems[] result = cart.CartItems
-                .OrderBy(c => c.Procuts.ProductId).ToArray();
+                .OrderBy(c => c.Products.ProductId).ToArray();
 
             Assert.AreEqual(result.Length, 2);
 
@@ -94,7 +94,7 @@ namespace Vinicius.VirtualStore.UnitTest
             CartItems[] items = cart.CartItems.ToArray();
 
             Assert.AreEqual(items.Length, 1);
-            Assert.AreEqual(cart.CartItems.Where(p => p.Procuts.ProductId == product1.ProductId).Count(), 0);
+            Assert.AreEqual(cart.CartItems.Where(p => p.Products.ProductId == product1.ProductId).Count(), 0);
 
 
         }

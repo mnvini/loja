@@ -9,13 +9,13 @@ namespace Vinicius.VirtualStore.Domain.Entities
 
         public void AddItem(Products products, int quantity)
         {
-            CartItems cart = _cartitems.FirstOrDefault(p => p.Procuts.ProductId == products.ProductId);
+            CartItems cart = _cartitems.FirstOrDefault(p => p.Products.ProductId == products.ProductId);
 
             if (cart == null)
             {
                 _cartitems.Add(new CartItems
                 {
-                    Procuts = products,
+                    Products = products,
                     Quantity = quantity
                 });
             }
@@ -27,12 +27,12 @@ namespace Vinicius.VirtualStore.Domain.Entities
 
         public void RemoveItem(Products products)
         {
-            _cartitems.RemoveAll(l => l.Procuts.ProductId == products.ProductId);
+            _cartitems.RemoveAll(l => l.Products.ProductId == products.ProductId);
         }
 
         public decimal TotalValue()
         {
-           return _cartitems.Sum(p => p.Procuts.Price*p.Quantity);
+           return _cartitems.Sum(p => p.Products.Price*p.Quantity);
         }
 
         public void CleanCart()
@@ -49,7 +49,7 @@ namespace Vinicius.VirtualStore.Domain.Entities
 
     public class CartItems
     {
-        public Products Procuts { get; set; }
+        public Products Products { get; set; }
 
         public int Quantity { get; set; }
     }

@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\ConfigEmails.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\EmailOrder.cs" />
     <Compile Include="Entities\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EfDbContext.cs" />
