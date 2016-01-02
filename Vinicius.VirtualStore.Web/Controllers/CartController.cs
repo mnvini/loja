@@ -64,5 +64,15 @@ namespace Vinicius.VirtualStore.Web.Controllers
             Cart cart = GetCart();
             return PartialView(cart);
         }
+
+        public ViewResult CloseOrder()
+        {
+            return View(new Order());
+        }
+        [HttpPost]
+        public ViewResult CloseOrder(Order order)
+        {
+            return View(new Order());
+        }
     }
 }

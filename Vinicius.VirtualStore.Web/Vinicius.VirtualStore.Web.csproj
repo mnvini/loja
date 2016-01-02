@@ -142,6 +142,7 @@
     <Content Include="Views\Category\Menu.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Resume.cshtml" />
+    <Content Include="Views\Cart\CloseOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

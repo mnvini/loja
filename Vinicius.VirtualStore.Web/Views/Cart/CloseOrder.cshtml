@@ -1,0 +1,51 @@
+﻿@model Vinicius.VirtualStore.Domain.Entities.Order
+
+@{
+    ViewBag.Title = "Vinicius's Close Order";
+}
+
+
+<h2>Close Order</h2>
+<p>Enter your information below</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <h3>Send To</h3>
+    <div class="form-group">
+        <label>Client Name</label>
+        @Html.TextBoxFor(o => o.ClientName, new {@class = "form-control"})
+    </div>
+
+    <h3>Information for delivery</h3>
+    <div class="form-group">
+        <label>Zip Code:</label>
+        @Html.TextBoxFor(o => o.Cep, new {@class = "form-control"})
+        <br/>
+        <label>Address:</label>
+        @Html.TextBoxFor(o => o.Address, new {@class = "form-control"})
+        <br/>
+        <label>Complement:</label>
+        @Html.TextBoxFor(o => o.Complement, new {@class = "form-control"})
+        <br/>
+        <label>City:</label>
+        @Html.TextBoxFor(o => o.City, new {@class = "form-control"})
+        <br/>
+        <label>Neighborhood:</label>
+        @Html.TextBoxFor(o => o.Neighborhood, new {@class = "form-control"})
+        <br/>
+        <label>State</label>
+        @Html.TextBoxFor(o => o.State, new {@class = "form-control"})
+        <br/>
+        <label>E-mail:</label>
+        @Html.TextBoxFor(o => o.Email, new {@class = "form-control"})
+        <h3>Options</h3>
+        <div class="checkbox">
+            <label>
+                @Html.EditorFor(o => o.GiftWrap)
+                Gift Wrap?
+            </label>
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Close Order"/>
+}
