@@ -20,7 +20,7 @@ namespace Vinicius.VirtualStore.Web.HtmlHelpers
                 TagBuilder tag = new TagBuilder("a");
                 tag.MergeAttribute("href",pageUrl(i));
                 tag.InnerHtml = i.ToString();
-
+                 
                 if (i.Equals(pagination.CurrentPage))
                 {
                     tag.AddCssClass("selected");
