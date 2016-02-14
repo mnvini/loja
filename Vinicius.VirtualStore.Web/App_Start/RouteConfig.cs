@@ -38,7 +38,8 @@ namespace Vinicius.VirtualStore.Web
                  new { controller = "Showcase", action = "ProductsList" }, new { page = @"\d+" }
             );
 
-            routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(null, "{controller}/{action}",
+                namespaces: new[] { "Vinicius.VirtualStore.Web.Controllers" });
         }
     }
 }
